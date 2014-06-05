@@ -16,5 +16,12 @@ namespace TheStringCalculatorKata.Tests
             var calculator = new StringCalculator();
             Assert.That(calculator.Add(String.Empty), Is.InstanceOf<Int32>());
         }
+
+        [Test]
+        public void EmptyStringShouldReturnZero()
+        {
+            var calculator = new StringCalculator();
+            Assert.That(calculator.Add(String.Empty), Is.EqualTo(0));
+        }
     }
 }
