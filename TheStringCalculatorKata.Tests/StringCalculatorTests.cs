@@ -49,5 +49,15 @@ namespace TheStringCalculatorKata.Tests
         {
             Assert.That(calculator.Add(numbers), Is.EqualTo(expected));
         }
+
+        [TestCase("1,2,3,4,5,6,7,8,9", 45)]
+        [TestCase("11,22,33", 66)]
+        [TestCase("121,212,111,1", 445)]
+        [TestCase("1337,223,200", 1760)]
+        [TestCase("9000,1,50", 9051)]
+        public void UnknownNumberOfNumbersShouldReturnSumOfThoseNumbers(string numbers, int expected)
+        {
+            Assert.That(calculator.Add(numbers), Is.EqualTo(expected));
+        }
     }
 }
