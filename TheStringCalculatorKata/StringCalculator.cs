@@ -10,7 +10,12 @@ namespace TheStringCalculatorKata
     {
         public int Add(string numbers)
         {
-            return 0;
+            if (!numbers.Any())
+                return 0;
+
+            var listOfNumbers = numbers.Split(',').Select(n => Convert.ToInt32(n)).ToList();
+
+            return listOfNumbers.Sum();
         }
     }
 }
