@@ -59,5 +59,21 @@ namespace TheStringCalculatorKata.Tests
         {
             Assert.That(calculator.Add(numbers), Is.EqualTo(expected));
         }
+
+        [TestCase("1\n2", 3)]
+        [TestCase("1\n2,3", 6)]
+        [TestCase("121,212\n111\n1", 445)]
+        [TestCase("1337,223\n200", 1760)]
+        [TestCase("9000\n1\n50", 9051)]
+        public void NewLinesShouldWorkAsDelimeterToo(string numbers, int expected)
+        {
+            Assert.That(calculator.Add(numbers), Is.EqualTo(expected));
+        }
+
+        [TestCase("//;\n1;2", 3)]
+        public void SupportDifferentDelimeters(string numbers, int expected)
+        {
+            Assert.That(calculator.Add(numbers), Is.EqualTo(expected));
+        }
     }
 }
